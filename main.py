@@ -6,6 +6,7 @@ from money_machine import MoneyMachine
 menu = Menu()
 coffee_maker = CoffeeMaker()
 money_machine = MoneyMachine()
+#menuitem = MenuItem()
 
 print(coffee_maker.is_resource_sufficient(drink=menu.find_drink("latte")))
 machine = "on"
@@ -28,7 +29,10 @@ while machine == "on":
 
     if selection_verified is not None:
         can_make = coffee_maker.is_resource_sufficient(drink=menu.find_drink(selection))
-        payment = money_machine.make_payment(cost=m)
-        if can_make:
+        #menuitem.cost = menu.__init__()
+        drink_object = menu.find_drink(selection)
+
+        payment = money_machine.make_payment(drink_object.cost)
+        if can_make and payment:
             coffee_maker.make_coffee(menu.find_drink(selection))
    #coffee_maker.is_resource_sufficient("latte")
